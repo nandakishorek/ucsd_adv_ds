@@ -1,0 +1,15 @@
+Class: MapGraph
+Modifications made to MapGraph:
+1. Added two private members
+   adjList - a mapping form vertex to a list of its neighbors, basically the adjacency list.
+   numOfEdges - a positive integer representing the number of edges in this graph.
+2. Implemented the BFS method.
+   Bread First Search algorithm implementation - returns a path, if any, from start to goal vertex.
+3. Added a private method that returns an ordered list of vertices representing a path from first to last vertex.
+   constructPath() - this method can be reused when returning paths determined using Dijsktra or A* algos.
+
+Overall Design Justification:
+   The overall design philosophy is a minimal, simple and extensible design.
+The vertex or node abstraction provided by GeographicPoint class, is reused.
+The methods perform only the functionality they are meant to provide.
+
