@@ -330,7 +330,9 @@ public class MapGraph {
                     GeographicPoint neighbor = edge.getEnd();
                     
                     Distance neighborDistance = distances.get(neighbor);
-                    double possibleNewDistance = edge.getLength() + currDistance.getDistance();
+                    // using travel time instead of distance 
+                    //double possibleNewDistance = edge.getLength() + currDistance.getDistance();
+                    double possibleNewDistance = edge.getTravelTime() + currDistance.getDistance();
                     
                     if (Double.compare(possibleNewDistance, neighborDistance.getDistance()) < 0) {
                         // there is a another shorter path

@@ -6,27 +6,30 @@ package roadgraph;
 import geography.GeographicPoint;
 
 /**
- * Represents a directed edge from 'start' vertex to 'end' vertex with a length 'length'
- * and type 'type'
+ * Represents a directed edge from 'start' vertex to 'end' vertex with a length
+ * 'length' and type 'type'
  * 
  * @author kishore
  *
  */
 public class DirectedEdge {
-    
+
     private GeographicPoint start;
     private GeographicPoint end;
     private String name;
     private String type;
     private double length;
-    
+    private double travelTime;
+
     public DirectedEdge(GeographicPoint start, GeographicPoint end, String name, String type, double length) {
         super();
         this.start = start;
         this.end = end;
         this.name = name;
-        this.type = type;
         this.length = length;
+        
+        double speed = RoadType.valueOf(type.toUpperCase()).getSpeed();
+        this.travelTime = length / speed;
     }
 
     public GeographicPoint getStart() {
@@ -42,11 +45,15 @@ public class DirectedEdge {
     }
 
     public String getType() {
-        return type;
+        return type.toString().toLowerCase();
     }
 
     public double getLength() {
         return length;
+    }
+
+    public double getTravelTime() {
+        return travelTime;
     }
 
     @Override
